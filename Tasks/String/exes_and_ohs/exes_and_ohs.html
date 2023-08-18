@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="exes-and-ohs">
+      <h1 class="exes-and-ohs__title">Exes and Ohs</h1>
+      <div class="exes-and-ohs__task-container">
+        <p class="exes-and-ohs__task">Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.</p>
+        <ul class="exes-and-ohs__examples">
+          <li class="exes-and-ohs__example">("ooxx") => true</li>
+          <li class="exes-and-ohs__example">("xooxx") => false</li>
+          <li class="exes-and-ohs__example">("ooxXm") => true</li>
+          <li class="exes-and-ohs__example">("zpzpzpp") => true // when no 'x' and 'o' is present should return true</li>
+          <li class="exes-and-ohs__example">("zzoo") => false</li>
+        </ul>
+      </div>
+      <div class="exes-and-ohs__input-container">
+        <div class="exes-and-ohs__wrapper">
+          <input class="exes-and-ohs__input" type="text" placeholder="Input text" id="input"/>
+          <button class="exes-and-ohs__button" type="button" id="button">Check your text</button>
+        </div>
+        <span class="exec-and-ohs__output">Result: <span id="result"></span></span>
+      </div>
+    </div>
+
+    <script>
+      function initEventListener(){
+        const button = document.querySelector('#button');
+        button.addEventListener("click", () => handleClick() )
+      }
+
+      function handleClick(){
+        const result = document.querySelector('#result'),
+              value = document.querySelector('#input').value.toLowerCase();
+
+        let xCount = 0, 
+            oCount = 0;
+
+        for(let i = 0; i < value.length; i++){
+          if(value[i] === 'x'){
+            xCount++;
+          } else if(value[i] === 'o'){
+            oCount++;
+          }
+        }
+
+        if(xCount === oCount){
+          result.innerText = 'true';
+        } else{
+          result.innerText = 'false';
+        }
+      }
+
+      initEventListener();
+    </script>
+
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+        border: 0;
+        outline: none;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body{
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .exes-and-ohs{
+        border: 1px solid rgb(179, 179, 179);
+        border-radius: 12px;
+        padding: 24px;
+      }
+
+      .exes-and-ohs__title{
+        color: rgb(39, 39, 39);
+        font-size: 24px;
+        padding-bottom: 24px;
+        margin-bottom: 24px;
+        border-bottom: 1px solid rgb(39, 39, 39);
+      }
+
+      .exes-and-ohs__task-container{
+        margin-bottom: 24px;
+      }
+
+      .exes-and-ohs__task{
+        color: rgb(65, 65, 65);
+        font-size: 14px;
+      }
+
+      .exes-and-ohs__input-container{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 12px;
+      }
+
+      .exes-and-ohs__wrapper{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+      }
+
+      .exes-and-ohs__input{
+        max-width: 200px;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid rgb(153, 153, 153);
+        margin-right: 12px;
+      }
+
+      .exes-and-ohs__button{
+        width: fit-content;
+        padding: 12px 30px;
+        border-radius: 12px;
+        color:black;
+        background-color: #cfcfcf;
+        cursor: pointer;
+        transition: background-color .3s;
+      }
+
+      .exes-and-ohs__button:hover{
+        background-color: #bebebe;
+      }
+
+      .exes-and-ohs__output{
+        font-weight: 600;
+        color: rgb(51, 51, 51);
+      }
+
+      .exes-and-ohs__examples{
+        margin-top: 12px;
+      }
+
+      .exes-and-ohs__example{
+        list-style-type: none;
+        color: rgb(170, 170, 170);
+        font-size: 12px;
+      }
+    </style>
+  </body>
+</html>
